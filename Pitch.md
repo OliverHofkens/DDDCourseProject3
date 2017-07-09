@@ -39,8 +39,8 @@ Data
 Application
 ========================================================
 
-The application plots the price trend of all countries a user selects for the chosen connection speed.  
-The maximum, minimum and mean across all countries are plotted too, and their values are shown when hovering over the plot.  
+* Plots the price trend of countries and connection speed selected by user.
+* Maximum, minimum and mean price across all countries are plotted too, and their values are shown when hovering over the plot.  
 
 Example output:  
 ![plot of chunk unnamed-chunk-2](Pitch-figure/unnamed-chunk-2-1.png)
@@ -48,8 +48,8 @@ Example output:
 Thank you
 ========================================================
 
-Feel free to check the application out [here](https://blarfursnarg.shinyapps.io/comparison_of_prices_of_internet_access_across_europe/)   
-You can check the source code out or leave feedback [here](https://github.com/OliverHofkens/DDDCourseProject3)  
+* Feel free to check the application out [here](https://blarfursnarg.shinyapps.io/comparison_of_prices_of_internet_access_across_europe/)   
+* You can check the source code out or leave feedback [here](https://github.com/OliverHofkens/DDDCourseProject3)  
 
   
 Thank you for your attention!

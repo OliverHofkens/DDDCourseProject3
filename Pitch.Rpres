@@ -32,8 +32,8 @@ summary(internetPrices[,c("time_period", "ref_area", "breakdown", "value")])
 Application
 ========================================================
 
-The application plots the price trend of all countries a user selects for the chosen connection speed.  
-The maximum, minimum and mean across all countries are plotted too, and their values are shown when hovering over the plot.  
+* Plots the price trend of countries and connection speed selected by user.
+* Maximum, minimum and mean price across all countries are plotted too, and their values are shown when hovering over the plot.  
 
 Example output:  
 ```{r, echo=FALSE, fig.width=15}
@@ -61,8 +61,8 @@ stats <- subset(internetPrices, breakdown == "offer_12_30_mbps") %>%
 Thank you
 ========================================================
 
-Feel free to check the application out [here](https://blarfursnarg.shinyapps.io/comparison_of_prices_of_internet_access_across_europe/)   
-You can check the source code out or leave feedback [here](https://github.com/OliverHofkens/DDDCourseProject3)  
+* Feel free to check the application out [here](https://blarfursnarg.shinyapps.io/comparison_of_prices_of_internet_access_across_europe/)   
+* You can check the source code out or leave feedback [here](https://github.com/OliverHofkens/DDDCourseProject3)  
 
   
 Thank you for your attention!
