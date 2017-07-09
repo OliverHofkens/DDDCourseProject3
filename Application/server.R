@@ -1,26 +1,21 @@
-#
-# This is the server logic of a Shiny web application. You can run the 
-# application by clicking 'Run App' above.
-#
-# Find out more about building applications with Shiny here:
-# 
-#    http://shiny.rstudio.com/
-#
-
 library(shiny)
+library(ggplot2)
 
-# Define server logic required to draw a histogram
+internetPrices <- read.csv("data/internet-price.csv")
+
 shinyServer(function(input, output) {
-   
-  output$distPlot <- renderPlot({
     
-    # generate bins based on input$bins from ui.R
-    x    <- faithful[, 2] 
-    bins <- seq(min(x), max(x), length.out = input$bins + 1)
+  output$pricePlot <- renderPlot({
+    countries <- input$countries
+    speed <- input$speed
+      
+    dataset <- subset(internetPrices, ref_area %in% countries && breakdown == speed)
     
-    # draw the histogram with the specified number of bins
-    hist(x, breaks = bins, col = 'darkgray', border = 'white')
+    g <- ggplot(internetPrices, aes(y = time_period, color = ref_area)) +
+        geom_line(aes(y = value)) +
+        labs(x = "Year", y = "Cost (€)")
     
+    g
   })
   
 })
