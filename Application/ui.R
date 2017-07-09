@@ -2,7 +2,7 @@ library(shiny)
 
 shinyUI(fluidPage(
   
-  titlePanel("Price of internet access in European countries over time"),
+  titlePanel("Minimum monthly price of internet access in Europe over time"),
   
   sidebarLayout(
     sidebarPanel(
@@ -14,7 +14,7 @@ shinyUI(fluidPage(
         checkboxGroupInput("countries", 
                            label = h2("Countries"), 
                            choices = unique(internetPrices$ref_area),
-                           selected = "BE")
+                           selected = c("BE","NL"))
     ),
     
     mainPanel(
