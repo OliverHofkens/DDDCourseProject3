@@ -3,12 +3,14 @@ Comparing trends in European internet connection prices
 author: Oliver Hofkens 
 date: 09/07/2017
 autosize: true
+width: 1440
+height: 900
 
 Introduction
 ========================================================
 
 Internet connection prices and speeds vary highly across Europe.  
-This small application allows the user to compare different countries and 
+This application allows the user to compare different countries and 
 see trends in the price versus the speed of the connection.
 
 Links:
@@ -18,13 +20,13 @@ Links:
 Data
 ========================================================
 
-The European Union publishes a lot of public data via the [European Union Open Data Portal](http://data.europa.eu/euodp/en/data/).  
-This specific application uses the ['Monthly price of standalone internet access'](https://data.europa.eu/euodp/en/data/dataset/nu6TLMS46TeSDUKnHAkw) data set, which is part of the 'Digital Agenda Scoreboard' initiative which tries to strengthen the European digital economy and society.  
-The data in question has the following format:  
+* Data from the [European Union Open Data Portal](http://data.europa.eu/euodp/en/data/).  
+* Part of the 'Digital Agenda' initiative which tries to strengthen the European digital society.
+* Format:
 
-```{r}
+```{r, echo=FALSE}
 internetPrices <- read.csv("Application/data/internet-price.csv")
-summary(internetPrices)
+summary(internetPrices[,c("time_period", "ref_area", "breakdown", "value")])
 ```
 
 Application
@@ -34,7 +36,7 @@ The application plots the price trend of all countries a user selects for the ch
 The maximum, minimum and mean across all countries are plotted too, and their values are shown when hovering over the plot.  
 
 Example output:  
-```{r, echo=FALSE}
+```{r, echo=FALSE, fig.width=15}
 library(ggplot2)
 library(dplyr)
 
@@ -61,4 +63,6 @@ Thank you
 
 Feel free to check the application out [here](https://blarfursnarg.shinyapps.io/comparison_of_prices_of_internet_access_across_europe/)   
 You can check the source code out or leave feedback [here](https://github.com/OliverHofkens/DDDCourseProject3)  
+
+  
 Thank you for your attention!
