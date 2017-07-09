@@ -1,0 +1,35 @@
+Trends in European internet connection prices
+========================================================
+author: Oliver Hofkens 
+date: 09/07/2017
+autosize: true
+
+Introduction
+========================================================
+
+Internet connection prices and speeds vary highly across Europe.  
+This small application allows the user to compare different countries and 
+see trends in the price versus the speed of the connection.
+
+Links:
+* [Application](https://blarfursnarg.shinyapps.io/comparison_of_prices_of_internet_access_across_europe/)
+* [Source Code](https://github.com/OliverHofkens/DDDCourseProject3)
+
+Data
+========================================================
+
+The European Union publishes a lot of public data via the [European Union Open Data Portal](http://data.europa.eu/euodp/en/data/).  
+This specific application uses the ['Monthly price of standalone internet access'](https://data.europa.eu/euodp/en/data/dataset/nu6TLMS46TeSDUKnHAkw) data set, which is part of the 'Digital Agenda Scoreboard' initiative which tries to strengthen the European digital economy and society.  
+The data in question has the following format:  
+
+```{r}
+internetPrices <- read.csv("Application/data/internet-price.csv")
+summary(internetPrices)
+```
+
+Slide With Plot
+========================================================
+
+```{r, echo=FALSE}
+plot(cars)
+```
