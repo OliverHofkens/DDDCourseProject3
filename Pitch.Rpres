@@ -1,4 +1,4 @@
-Trends in European internet connection prices
+Comparing trends in European internet connection prices
 ========================================================
 author: Oliver Hofkens 
 date: 09/07/2017
@@ -27,9 +27,38 @@ internetPrices <- read.csv("Application/data/internet-price.csv")
 summary(internetPrices)
 ```
 
-Slide With Plot
+Application
 ========================================================
 
+The application plots the price trend of all countries a user selects for the chosen connection speed.  
+The maximum, minimum and mean across all countries are plotted too, and their values are shown when hovering over the plot.  
+
+Example output:  
 ```{r, echo=FALSE}
-plot(cars)
+library(ggplot2)
+library(dplyr)
+
+dataset <- subset(internetPrices, ref_area %in% c("BE", "NL", "FR") & breakdown == "offer_12_30_mbps")
+    
+stats <- subset(internetPrices, breakdown == "offer_12_30_mbps") %>%
+        group_by(time_period) %>%
+        summarise(min_value = min(value),
+                  max_value = max(value), 
+                  mean_value = mean(value))
+    
+    g <- ggplot() +
+        geom_ribbon(aes(x = time_period, ymin = min_value, ymax  = max_value, group = NA, color = NA), data = stats, fill = "Gray", color = NA, alpha = 0.3) +
+        geom_line(aes(x = time_period, y = mean_value, group = NA), data = stats, color = "Black", linetype = 2) +
+        geom_line(aes(x = time_period, y = value, group = ref_area, color = ref_area), data = dataset) +
+        scale_y_continuous(expand = c(0, 0), limits=c(0,150), breaks = seq(0, 150, 25)) +
+        labs(x = "Year", y = "Monthly Cost (€)", color = "Country") 
+    
+    g
 ```
+
+Thank you
+========================================================
+
+Feel free to check the application out [here](https://blarfursnarg.shinyapps.io/comparison_of_prices_of_internet_access_across_europe/)   
+You can check the source code out or leave feedback [here](https://github.com/OliverHofkens/DDDCourseProject3)  
+Thank you for your attention!
